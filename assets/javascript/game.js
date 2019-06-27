@@ -4,32 +4,37 @@ var wordAnswer = wordBank[Math.floor(Math.random() * wordBank.length)];
 
 console.log(wordAnswer);
 
-var answerBlanks = document.getElementById("answerBlanks");
+var answerBlanks = [];
+var textBlanks = document.getElementById("textBlanks")
 
 for (var i = 0; i < wordAnswer.length; i++) {
-    answerBlanks.textContent += "_"
+    answerBlanks[i] = "_"
+    textBlanks.textContent += "_"
 }
 
 var letterGuess = document.getElementById("letterGuess");
+
+var remainingLetters = wordAnswer.length;
 
 document.onkeypress = function (event) {
     letterGuess.textContent = event.key;
 
     for (var j = 0; j < wordAnswer.length; j++) {
-        if (event.key === wordAnswer[j]) {
+        var guess = event.key
+
+        if (guess === wordAnswer[j]) {
             console.log("Match!");
 
-            var toBeReplaced = answerBlanks.textContent[j]
+            remainingLetters--
+            console.log(remainingLetters)
 
-            console.log(event.key)
-            console.log(toBeReplaced)
+            answerBlanks[j] = guess
 
-            answerBlanks.textContent = answerBlanks.textContent.replace(answerBlanks.textContent[j], event.key)
+            console.log(answerBlanks)
 
-            console.log(answerBlanks.textContent)
-            console.log(answerBlanks.textContent[j])
+            var noCommas = [answerBlanks.join("")];
+            textBlanks.textContent = noCommas
+            
         }
     }
 }
-
-// special bug on targaryan
