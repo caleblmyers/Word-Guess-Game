@@ -12,29 +12,54 @@ for (var i = 0; i < wordAnswer.length; i++) {
 }
 
 var remainingLetters = wordAnswer.length;
+var guessArray = document.getElementById("guessArray");
+var guesses = []
+var lives = 12
+var livesLeft = document.getElementById("livesLeft")
+livesLeft.textContent = lives
+var winScreen = document.getElementById("winScreen")
 
-var letterGuess = document.getElementById("letterGuess");
 
 document.onkeypress = function (event) {
-    letterGuess.textContent = event.key;
-    var guess = event.key
+    if (remainingLetters > 0 && lives > 0) {
+        var guess = event.key
+        var correct = false
 
-    for (var j = 0; j < wordAnswer.length; j++) {
-        if (guess === wordAnswer[j]) {
-            console.log("Match!");
+        for (var j = 0; j < wordAnswer.length; j++) {
+            if (answerBlanks[j] === "_") {
+                if (wordAnswer[j] === guess) {
+                    if (j === 0) {
+                        guess = guess.toUpperCase()
+                    }
+                    
+                    answerBlanks[j] = guess
+                    
+                    var noCommas = [answerBlanks.join("")];
+                    textBlanks.textContent = noCommas
 
-            remainingLetters--
-            console.log(remainingLetters)
+                    remainingLetters--
 
-            answerBlanks[j] = guess
-            console.log(answerBlanks)
-
-            var noCommas = [answerBlanks.join("")];
-            textBlanks.textContent = noCommas
+                    correct = true
+                }      
+            } 
         }
-    }a
 
-    if (remainingLetters === 0) {
-        console.log("You win!!")
+        if (correct === false) {
+            lives--
+            livesLeft.textContent = lives
+        }
+
+        if (lives === 0) {
+            winScreen.textContent = "You lost!!!"
+        }
+
+        if (remainingLetters > 0) {        
+            guesses.push(guess)
+            guessArray.textContent = guesses
+        }
+
+        if (remainingLetters === 0) {
+            winScreen.textContent = "You win!!!"
+        }
     }
 }

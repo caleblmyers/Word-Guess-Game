@@ -8,15 +8,37 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-    <div class="container">
-        <span class="h1">Header</span>
-    
-        <p id="textBlanks" style="letter-spacing: 2px;"></p>
+<body class="text-white bg-dark">
 
-        <br> <br>
+    <div class="jumbotron jumbotron-fluid text-white bg-dark">
+        <div class="container">
+            <h1 class="display-4 text-center">Houses of Westeros</h1>
+            <p class="h4 text-center">A Game of Thrones Inspired Hangman Game</p>
+        </div>
+    </div>
 
-        <p id="letterGuess"></p>
+    <div class="container border border-white py-3 my-3">
+        <div class="row">            
+            <div class="col-sm">            
+                <p class="h4 text-center">Guess the House Sigil!</p>
+                
+                <img class="mx-auto d-block py-2" src="https://via.placeholder.com/200" alt="Placeholder">
+            </div>
+            
+            <div class="col-sm">
+                <div class="h4 text-center">Press any key to get started!</div>
+                <br>
+                <div class="text-center">You have <span id="livesLeft"></span> lives left.</div>
+                <br>
+                <p class="text-center pt-3" id="textBlanks" style="letter-spacing: 2px;"></p>
+                
+                <br>
+                
+                <div class="text-center" id="winScreen"></div>
+                <br>
+                <p class="text-center" id="guessArray"></p>
+            </div>
+        </div>
     </div>
 
     <script src="assets/javascript/game.js"></script>
