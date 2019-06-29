@@ -38,6 +38,8 @@ var winCount = 0
 var winText = document.getElementById("winText")
 winText.textContent = winCount
 
+var winSound = new Audio("assets/audio/coinSound.wav")
+var loseSound = new Audio("assets/audio/loseSound.mp3")
 
 function checkLetter (event) {
     var guess = event.key
@@ -70,6 +72,7 @@ function checkLetter (event) {
     }
 
     if (lives === 0) {
+        loseSound.play()
         winScreen.textContent = "You lost!!!"
         winScreen.style.color = "red"
         replay.style.display = "block"
@@ -81,6 +84,7 @@ function checkLetter (event) {
     }
 
     if (remainingLetters === 0) {
+        winSound.play()
         winCount++
         winText.textContent = winCount
         winScreen.textContent = "You win!!!"
