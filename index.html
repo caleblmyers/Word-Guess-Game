@@ -10,19 +10,49 @@
 </head>
 <body class="text-white bg-dark">
 
-    <div class="jumbotron jumbotron-fluid text-white bg-dark">
+    <div class="jumbotron jumbotron-fluid text-white bg-dark pb-1 mb-1">
         <div class="container">
             <h1 class="display-4 text-center">Houses of Westeros</h1>
             <p class="h4 text-center">A Game of Thrones Inspired Hangman Game</p>
+            
+            <br>
+            
+            <p class="text-center" id="instructions">
+                Welcome to a Game of Thrones themed hangman game!
+                
+                <br> <br>
+
+                Press the 'S' key to start! <br> <br>
+                
+                Once the game starts, an image will show the sigil of one of the Great Houses of Westeros <br>
+                Make a guess by typing the key of a letter you think belongs <br> <br>
+                
+                Be careful though! <br>
+                If you make an incorrect guess you will lose a life! <br>
+                Lose all 10 lives and you lose the game <br> <br>
+                
+                See how many House Sigils you can guess! <br> <br>
+            </span>
+            </p>
+
+            <p class="text-center" id="replay" style="display: none">
+                Do you want to play again? <br> <br>
+
+                Press 'Y' for a new word!
+            </p>
+
+            <p class="text-center" id="winCounter" style="display: none">
+                Total Wins: <span id="winText"></span>
+            </p>
         </div>
     </div>
 
-    <div class="container border border-white py-3 my-3">
+    <div class="container border border-white py-3 my-1" id="gameBox" style="display: none">
         <div class="row">            
             <div class="col-sm">            
                 <p class="h4 text-center">Guess the House Sigil!</p>
                 
-                <img class="mx-auto d-block py-2" src="https://via.placeholder.com/200" alt="Placeholder">
+                <img class="mx-auto d-block py-2" id="imageHolder" style="height: 300px; width:250px" alt="Placeholder">
             </div>
             
             <div class="col-sm">
