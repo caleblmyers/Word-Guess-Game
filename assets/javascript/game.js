@@ -41,6 +41,8 @@ winText.textContent = winCount
 
 function checkLetter (event) {
     var guess = event.key
+    guess = guess.toLowerCase()
+
     var correct = false
     
     for (var j = 0; j < wordAnswer.length; j++) {
@@ -49,7 +51,7 @@ function checkLetter (event) {
                 if (j === 0) {
                     guess = guess.toUpperCase()
                 }
-
+                
                 answerBlanks[j] = guess
 
                 var noCommas = [answerBlanks.join("")];
@@ -69,6 +71,7 @@ function checkLetter (event) {
 
     if (lives === 0) {
         winScreen.textContent = "You lost!!!"
+        winScreen.style.color = "red"
         replay.style.display = "block"
     }
 
@@ -81,6 +84,7 @@ function checkLetter (event) {
         winCount++
         winText.textContent = winCount
         winScreen.textContent = "You win!!!"
+        winScreen.style.color = "green"
         replay.style.display = "block"
     }
 }
