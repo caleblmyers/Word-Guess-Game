@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Word Guess Game</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -16,13 +18,16 @@
             <p class="h3 text-center">A Game of Thrones Inspired Hangman Game</p>
             
             <br>
-            
+            <div class="h6  text-center" id="startDiv">
+                <p class="m-3">Welcome to a Game of Thrones themed hangman game!</p>
+                <button class="mt-3 btn btn-secondary" id="startBtn" value="Start">Start</button>
+            </div>
+
             <p class="text-center" id="instructions">
-                Welcome to a Game of Thrones themed hangman game!
                 
                 <br> <br>
 
-                Press the 'S' key to start! <br> <br>
+                Press the "Start" button to begin! <br> <br>
                 
                 Once the game starts, an image will show the sigil of one of the Great Houses of Westeros <br>
                 Make a guess by typing the key of a letter you think belongs <br> <br>
@@ -42,6 +47,10 @@
 
                 Press 'Y' for a new word!
             </p>
+
+            <div class="text-center" id="resetRow" style="display: none">
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
 
             <p class="text-center" id="winCounter" style="display: none">
                 Total Wins: <span id="winText"></span>
